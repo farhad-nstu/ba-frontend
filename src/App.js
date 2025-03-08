@@ -4,6 +4,9 @@ import Dashboard from "./pages/Dashboard";
 import LoginModal from "./components/Auth/LoginModal";
 import RegisterModal from "./components/Auth/RegisterModal";
 import Navbar from "./components/Navbar";
+import CreateHotel from "./pages/CreateHotel";
+import ManageHotels from "./pages/ManageHotels";
+import HotelDetails from "./pages/HotelDetails";
 
 const App = () => {
   return (
@@ -26,6 +29,9 @@ const MainRoutes = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<LoginModal />} />
         <Route path="/register" element={<RegisterModal />} />
+        <Route path="/manage-hotels" element={<ManageHotels />} />
+        <Route path="/hotels/:id" element={<HotelDetails />} />
+        <Route path="/create-hotel" element={<CreateHotel />} />
       </Routes>
 
       {/* Modal Routes (Intercepting) */}
