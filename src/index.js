@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthContext";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Create root for React 18+
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -37,6 +37,11 @@ const ManageHotels = () => {
     }
   };
 
+  // Navigate to the Details Hotel page
+  const handleDetails = (id) => {
+    navigate(`/hotels/${id}`);
+  };
+
   // Navigate to the Edit Hotel page
   const handleEdit = (id) => {
     navigate(`/hotels/edit/${id}`);
@@ -44,58 +49,59 @@ const ManageHotels = () => {
 
   return (
     <div>
-      <h1>Manage Hotels</h1>
+        <h1>Manage Hotels</h1>
+        <div className="p-2 m-2">
+            <button style={{ float: 'right' }} onClick={() => navigate("/hotels/create")}>Create Hotel</button>
 
-      <button onClick={() => navigate("/hotels/create")}>Create Hotel</button>
+            {hotels.length === 0 ? (
+            <p>No hotels available.</p>
+            ) : (
+            <div>
+                <table className="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hotel Name</th>
+                            <th>Address</th>
+                            <th>Cost Per Night</th>
+                            <th>Available Rooms</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {hotels.map((hotel) => (
+                            <tr key={hotel.id}>
+                                <td>{hotel.name}</td>
+                                <td>{hotel.address}</td>
+                                <td>{hotel.cost_per_night}</td>
+                                <td>{hotel.available_rooms}</td>
+                                <td>
+                                    <img src={hotel.image_url} alt={hotel.name} style={{ width: "200px" }} />
+                                </td>
+                                <td>
+                                    <button className="btn btn-sm btn-primary" onClick={() => handleDetails(hotel.id)}>View</button> &nbsp;
+                                    <button className="btn btn-sm btn-success" onClick={() => handleEdit(hotel.id)}>Edit</button> &nbsp;
+                                    <button className="btn btn-sm btn-danger" onClick={() => handleDelete(hotel.id)}>Delete</button>
+                                </td>
+                            </tr>
 
-      {hotels.length === 0 ? (
-        <p>No hotels available.</p>
-      ) : (
-        <div>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            )}
 
-        <table className="table striped-bordered">
-            <thead>
-                <tr>
-                    <th>Hotel Name</th>
-                    <th>Address</th>
-                    <th>Cost Per Night</th>
-                    <th>Available Rooms</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {hotels.map((hotel) => (
-                    <tr key={hotel.id}>
-                        <td>{hotel.name}</td>
-                        <td>{hotel.address}</td>
-                        <td>{hotel.cost_per_night}</td>
-                        <td>{hotel.available_rooms}</td>
-                        <td>
-                            <img src={hotel.image_url} alt={hotel.name} style={{ width: "200px" }} />
-                        </td>
-                        <td>
-                            <button onClick={() => handleEdit(hotel.id)}>Edit</button>
-                            <button onClick={() => handleDelete(hotel.id)}>Delete</button>
-                        </td>
-                    </tr>
+            <div>
+            <button disabled={currentPage === 1} onClick={() => setCurrentPage((prev) => prev - 1)}>
+                Previous
+            </button>
 
-                ))}
-            </tbody>
-        </table>
+            <span> Page {currentPage} of {totalPages} </span>
+
+            <button disabled={currentPage === totalPages} onClick={() => setCurrentPage((prev) => prev + 1)}>
+                Next
+            </button>
+            </div>
         </div>
-      )}
-
-      <div>
-        <button disabled={currentPage === 1} onClick={() => setCurrentPage((prev) => prev - 1)}>
-          Previous
-        </button>
-
-        <span> Page {currentPage} of {totalPages} </span>
-
-        <button disabled={currentPage === totalPages} onClick={() => setCurrentPage((prev) => prev + 1)}>
-          Next
-        </button>
-      </div>
     </div>
   );
 };
