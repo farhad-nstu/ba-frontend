@@ -43,6 +43,7 @@ const CreateHotel = () => {
             required
           />
         </div>
+        <br></br>
         <div>
           <label>Address:</label>
           <input
@@ -53,6 +54,7 @@ const CreateHotel = () => {
             required
           />
         </div>
+        <br></br>
         <div>
           <label>Cost per Night ($):</label>
           <input
@@ -63,6 +65,7 @@ const CreateHotel = () => {
             required
           />
         </div>
+        <br></br>
         <div>
           <label>Available Rooms:</label>
           <input
@@ -73,6 +76,7 @@ const CreateHotel = () => {
             required
           />
         </div>
+        <br></br>
         <div>
           <label>Image URL:</label>
           <input
@@ -82,6 +86,7 @@ const CreateHotel = () => {
             onChange={handleChange}
           />
         </div>
+        <br></br>
         <button type="submit">Create Hotel</button>
       </form>
     </div>

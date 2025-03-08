@@ -5,6 +5,7 @@ import LoginModal from "./components/Auth/LoginModal";
 import RegisterModal from "./components/Auth/RegisterModal";
 import Navbar from "./components/Navbar";
 import CreateHotel from "./pages/CreateHotel";
+import EditHotel from "./pages/EditHotel";
 import ManageHotels from "./pages/ManageHotels";
 import HotelDetails from "./pages/HotelDetails";
 
@@ -31,7 +32,8 @@ const MainRoutes = () => {
         <Route path="/register" element={<RegisterModal />} />
         <Route path="/manage-hotels" element={<ManageHotels />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
-        <Route path="/create-hotel" element={<CreateHotel />} />
+        <Route path="/hotels/create" element={<CreateHotel />} />
+        <Route path="/hotels/edit/:id" element={<EditHotel />} />
       </Routes>
 
       {/* Modal Routes (Intercepting) */}

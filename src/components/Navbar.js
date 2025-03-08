@@ -6,10 +6,11 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/">Home</Link> &nbsp;&nbsp;
+      <Link to="/manage-hotels">Manage Hotles</Link> &nbsp;&nbsp;
       <Link to="/login" state={{ background: location }}>
         Login
-      </Link>
+      </Link> &nbsp;&nbsp;
       <Link to="/register" state={{ background: location }}>
         Register
       </Link>
